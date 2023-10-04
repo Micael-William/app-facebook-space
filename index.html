@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" 
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Facebook Safespace - Oficial</title>
+    <script>
+        tailwind.config = {
+          theme: {
+            screens: {
+                'sm': {'min': '0px', 'max': '767px'},
+                'md': {'min': '768px', 'max': '1023px'},
+                'lg': {'min': '1024px', 'max': '1279px'},
+                'xl': {'min': '1280px', 'max': '1535px'},
+                '2xl': {'min': '1536px'},
+            },
+          }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        body {
+            margin: 0;
+            padding: 10px;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: rgb(24, 25, 26);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            user-select: none;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+    </style>
+</head>
+<body class="flex justify-center">
+    <section class="p-5 mt-5 flex flex-col items-center">
+        <img src="src/logo_icon.png" class="max-w-[80%]" alt="">
+        <p class="text-xl mt-3 text-zinc-500">Bem Vindo a Nossa Comunidade!</p>
+        <form action="app.html" class="w-full">
+            <input type="email" placeholder="E-mail utilizado na compra"
+            class="w-full border border-[#252525] bg-[rgb(15,15,15)] p-4 text-white rounded-md my-5" required>
+            <button class="bg-[rgb(56,88,152)] text-white uppercase font-[800] p-3 text-sm w-full rounded-md 
+            flex items-center gap-3 items-center justify-center mb-5">Entrar <i class="fa-sharp fa-regular fa-arrow-right"></i></button>
+        </form>
+        <p class="text-white font-light">Não possui uma conta? <a class="text-blue-500 underline">Clique aqui</a></p>
+    </section>
+</body>
+</html>

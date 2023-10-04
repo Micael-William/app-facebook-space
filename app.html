@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" 
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Facebook Safespace - Oficial</title>
+    <script>
+        tailwind.config = {
+          theme: {
+            screens: {
+                'sm': {'min': '0px', 'max': '767px'},
+                'md': {'min': '768px', 'max': '1023px'},
+                'lg': {'min': '1024px', 'max': '1279px'},
+                'xl': {'min': '1280px', 'max': '1535px'},
+                '2xl': {'min': '1536px'},
+            },
+          }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: rgb(24, 25, 26);
+        }
+        
+        
+        * {
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+        .table-mines {
+        display: grid;
+            gap: 7px;
+            grid-template-columns: repeat(5, 18.5%);
+            grid-template-rows: repeat(5, 18.5%);
+        }
+        .swal2-container {
+            margin-top: 20px !important;
+            width: 85% !important;
+            padding: 10px !important;
+            white-space: nowrap !important;
+            font-size: 12px !important;
+        }
+        .swal2-popup {
+            zoom: 0.7 !important;
+            box-shadow: none !important;
+        }
+        
+        .logo-anuncio{
+            /*height: 406px;*/
+    	    width: 100%;
+    	    background-size: cover;
+    	    background-repeat: no-repeat;
+    	    background-position: 50% 50%;
+        }
+        
+        .botao-curti {
+            display: inline-flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            outline: 0px;
+            border: 0px;
+            margin: 0px 16px 0px 0px;
+            cursor: pointer;
+            user-select: none;
+            vertical-align: middle;
+            appearance: none;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: Montserrat, sans-serif;
+            font-size: 0.875rem;
+            line-height: 1.75;
+            min-width: 64px;
+            transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            background-color: rgb(56, 88, 152);
+            width: 100%;
+            text-transform: none;
+            border-radius: 4px;
+            box-shadow: none;
+            padding: 0.6rem 1.5rem;
+            color: white;
+        }
+        
+        .botao-curti-like {
+        user-select: none;
+    	width: 1em;
+    	height: 1em;
+    	display: inline-block;
+    	fill: currentcolor;
+    	flex-shrink: 0;
+    	transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    	font-size: 1.5rem;
+        }
+        
+        .botao-ver {
+            text-transform: none;
+            border-radius: 4px;
+            box-shadow: none;
+            padding: 0.6rem 1.5rem;
+            color: white;
+            background-color: rgb(0, 186, 117);
+        }
+        
+        @media (max-width: 450px) {
+            .botao-ver {
+                width: 85vw;
+            }
+        }
+        
+        @media (min-width: 550px) {
+            .botao-ver {
+                width: 85vw;
+            }
+        }
+        
+        @media (min-width: 550px) {
+            .botao-ver {
+                width: 85vw;
+            }
+        }
+        
+        @media (min-width: 450px) {
+            .botao-ver {
+                width: 85vw;
+            }
+        }
+        
+        .conteudo-botoes {
+            display: flex;
+    	    -webkit-box-pack: justify;
+    	    justify-content: space-between;
+    	    margin-top: 16px;
+        }
+        
+        .conteudo-linha-horizontal {
+            margin: 32px 0px;
+    	    flex-shrink: 0;
+    	    border-width: 0px 0px thin;
+    	    border-style: solid;
+    	    border-color: rgba(255, 255, 255, 0.12);
+        }
+        
+        .desbloquear {
+            user-select: none;
+            width: 1em;
+            height: 1em;
+            display: inline-block;
+            fill: currentcolor;
+            flex-shrink: 0;
+            transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            font-size: 1.5rem;
+            margin-bottom: -5px;
+            margin-right: 8px;
+        }
+        
+        .seta-anuncio{
+            user-select: none;
+            width: 1em;
+            height: 1em;
+            display: inline-block;
+            fill: currentcolor;
+            flex-shrink: 0;
+            transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            margin-left: 8px;
+            font-size: 20px;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+    
+    </style>
+</head>
+<body class="flex flex-col text-white">
+    
+    <!--MODAL SALDO-->
+    
+    <modal onclick="fecharModal()" id="desbloquearSaldo" style="display: none;" class="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] flex items-center justify-center p-10 z-[101]">
+        <div class="w-full p-5 rounded-md bg-[rgb(36,37,38)] text-white">
+            <h1 class="font-bold text-lg gap-3 items-center flex">
+                <i class="fa-brands fa-pix text-lg"></i> Saldo Bloqueado!
+            </h1>
+            <p class="my-5 opacity-50"><b>Atenção!</b> Realize o pagamento da taxa antifraude para desbloquear seu saldo.</p>
+            <a href="https://go.perfectpay.com.br/PPU38CN7KF5?&utm_source=appfbtaxasaque" target="_blank">
+            <button class="w-full p-3 text-white text-base bg-[rgb(56,88,152)] rounded-md uppercase font-bold entendi-btn">Desbloquear</button>
+            </a>
+        </div>
+    </modal>
+    
+    <!--MODAL ANÚNCIOS -->
+    
+    <modal id="abrirModalDesbloquearAnuncios" style="display: none;" class="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] flex items-center justify-center p-10 z-[101]">
+        
+        <div class="w-full p-5 rounded-md bg-[rgb(36,37,38)] text-white">
+            
+            <h1 class="font-bold text-lg gap-3 items-center flex">
+              <svg  class="desbloquear MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-s9c5zk" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LockOpenIcon">
+                  <path d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h1.9c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10z"></path>
+              </svg> Desbloquear anúncios!
+            </h1>
+            
+            <p class="my-5 opacity-50"><b>Atenção!</b> Clique no botão abaixo para desbloquear mais anúncios e continuar lucrando.</p>
+            <a href="https://go.perfectpay.com.br/PPU38CN7KF5?&utm_source=appfbtaxasaque" target="_blank">
+            <button class="w-full p-3 text-white text-base bg-[rgb(56,88,152)] rounded-md uppercase font-bold desbloquear-btn">Desbloquear<svg class="seta-anuncio MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6hsmhf" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="ArrowForwardRoundedIcon">
+                <path d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"></path>
+                </svg>
+            </button>
+            </a>
+        </div>
+    </modal>
+
+    <blocked style="display: none;" class="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] flex items-center justify-center p-10 z-[101]">
+        <div class="w-full p-5 rounded-md bg-[rgb(36,37,38)] text-white">
+            <h1 class="font-bold text-lg gap-3 items-center flex">
+                <i class="fa-sharp fa-solid fa-lock text-lg"></i> Códigos Limitados!
+            </h1>
+            <p class="my-5 opacity-50"><b>Atenção!</b> Adquira a Licença ilimitada para gerar quantos códigos quiser!</p>
+            <a href="https://go.perfectpay.com.br/PPU38CN7KEI?&utm_source=appfbmaisanuncios" target="_blank">
+                <button class="w-full p-3 text-white text-base bg-[rgb(56,88,152)] rounded-md uppercase font-bold desblock">Desbloquear <i class="fa-sharp fa-regular fa-arrow-right ml-2"></i></button>
+            </a>        
+        </div>
+    </blocked>
+
+    <withblock style="display: none;" class="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] flex items-center justify-center p-10 z-[101]">
+        <div class="w-full p-5 rounded-md bg-[rgb(36,37,38)] text-white">
+            <h1 class="font-bold text-lg gap-3 items-center flex">
+                <i class="fa-brands fa-pix text-lg"></i> Desbloquear Saldo!
+            </h1>
+            <p class="my-5 opacity-50"><b>Atenção!</b> Realize o pagamento da taxa para desbloquear seu saldo.</p>
+            <a href="https://go.perfectpay.com.br/PPU38CN7KF5?&utm_source=appfbtaxasaque" target="_blank">
+                <button class="w-full p-3 text-white text-base bg-[rgb(56,88,152)] rounded-md uppercase font-bold desblock-with">Desbloquear <i class="fa-sharp fa-regular fa-arrow-right ml-2"></i></button>
+            </a>
+        </div>
+    </withblock>
+
+    <header class="flex items-center justify-between border-b border-[#252525] p-5 sticky top-0 bg-[rgb(24,25,26)]">
+        <span class="text-white font-bold text-xl">Anúncios</span>
+        
+      
+     
+        <div class="flex items-center gap-5 btn-with">
+            <div class="p-2 rounded-full px-5 text-white text-sm border border-[#252525]"><i class="fa-solid fa-wallet mr-1"></i> R$ <span class="wallet">0,00</span></div>
+            <a href="index.html"><i class="fa-solid fa-right-to-bracket text-white"></i></a>
+        </div>
+    </header>
+    
+    
+
+    <!-- PARTE ANÚNCIOS -->
+    
+    <section id="secao-banners" class="flex-1 w-full overflow-auto flex items-center flex-col text-center gap-5 py-7 px-5 home pb-32">
+        
+        <img src="src/logo_icon.png" class="w-[250px]" alt="">
+        
+        <p class="text-xl mt-1 text-zinc-500 font-bold">Aumente Seu Saldo avaliando os anúncios abaixo!</p>
+        
+        <div class="conteudo-anuncio"></div>
+        
+        
+        <!--<button class="w-full p-3 text-white text-base bg-[rgb(56,88,152)] rounded-md generate"></button>-->
+
+        <div id="anuncio15" class="flex flex-col gap-1 text-sm font-light items-center justify-center h-full menu-item desbloquear-item">
+            <button class="botao-ver" type="button">Ver mais anúncios</button>
+        </div>
+        
+    </section>
+    
+
+    <section style="display: none;" class="flex-1 w-full overflow-auto flex items-center flex-col text-center gap-3 py-7 px-5 code">
+        <img src="src/logo_icon.png" class="w-[250px]" alt="">
+        <div class="w-32 h-32 rounded-xl bg-[rgb(36,37,38)] p-3 mt-5" id="empresa-img"></div>
+        <p class="text-lg opacity-50">Empresa <span id="empresa-name">Microsoft</span> ofertou.</p>
+        <b class="text-4xl font-bold text-[rgb(0,170,79)]">R$ <span class="money">0,00</span></b>
+        <div class="flex items-center gap-5 px-10 mt-5">
+            <button class="w-full bg-[rgb(0,170,79)] p-3 px-7 font-bold rounded-md text-sm accept">Aceitar</button>
+            <button class="w-full p-3 px-7 font-bold rounded-md text-sm bg-[rgb(245,106,80)] recuse">Recusar</button>
+        </div>
+    </section>
+
+    <section style="display: none;" class="flex-1 w-full overflow-auto text-center gap-5 py-7 px-5 bonus pb-32">
+        <img src="src/logo_icon.png" class="w-[250px] mx-auto" alt="">
+        <p class="text-xl mt-3 text-zinc-500 font-bold mt-3">Multiplique seus ganhos com a <br />ferramenta abaixo</p>
+        <div class="w-full p-5 flex flex-col bg-[rgb(36,37,38)] rounded-md mt-5">
+            <div class="w-full p-4 rounded-sm bg-[rgb(24,25,26)] text-white text-base">Sinal Encontrado!</div>
+            <div class="flex items-center gap-3 h-24 mt-3">
+                <div class="w-full h-full bg-[rgb(24,25,26)] text-white rounded-sm flex flex-col items-center justify-center gap-2">
+                    <small class="opacity-50">Proteções</small>
+                    <span class="attempts-text">--</span>
+                </div>
+                <div class="w-full h-full bg-[rgb(24,25,26)] text-white rounded-sm flex flex-col items-center justify-center gap-2">
+                    <small class="opacity-50">N° de Minas</small>
+                    <span class="mines-text">--</span>
+                </div>
+                <div class="w-full h-full bg-[rgb(24,25,26)] text-white rounded-sm flex flex-col items-center justify-center gap-2">
+                    <small class="opacity-50">Válido Até</small>
+                    <span class="val-text">--</span>
+                </div>
+            </div>
+            <p class="mt-5 opacity-50 text-xs tracking-wider uppercase"><b id="enters-people">0</b> pessoas fizeram entrada</p>
+        </div>
+        <div class="mines-ia relative mt-4 text-center bg-[rgb(36,37,38)] w-full rounded-md p-5"></div>
+        <button class="w-full p-3 text-white text-base bg-[rgb(0,186,117)] uppercase font-bold rounded-md my-5 btn-ia">Identificar Sinal</button>
+        <iframe src="https://playpix.com/affiliates/?btag=1471244_l222271" class="w-full h-[500px]" frameborder="0"></iframe>
+    </section>
+
+    <section style="display: none;" class="flex-1 w-full overflow-auto text-center gap-5 py-7 px-5 withdraw pb-32">
+        <img src="src/logo_icon.png" class="w-[250px] mx-auto" alt="">
+        <p class="text-xl mt-3 text-zinc-500 font-bold mt-3">Preencha os campos abaixo para sacar seu saldo.</p>
+        <form id="saq">
+            <div class="flex flex-col w-full relative group">
+                <span class="absolute text-xs ml-2 mt-3 bg-[rgb(24,25,26)] group-hover:text-blue-600 px-3 text-[rgba(255,255,255,.4)]">Valor</span>
+                <input type="text" class="w-full mt-5 p-4 bg-transparent text-sm text-[rgba(255,255,255,.4)]
+                border border-[rgba(255,255,255,.2)] rounded-md focus:outline-none transition-all focus:ring-1 focus:border-blue-600 pointer-events-none" 
+                value="0" id="saq-wallet" placeholder="R$ 0,00" required>
+            </div>
+            <div class="flex flex-col w-full relative group">
+                <span class="absolute text-xs ml-2 mt-3 bg-[rgb(24,25,26)] group-hover:text-blue-600 px-3 text-[rgba(255,255,255,.4)]">Chave Pix</span>
+                <input type="text" class="w-full mt-5 p-4 bg-transparent text-sm 
+                border border-[rgba(255,255,255,.2)] rounded-md focus:outline-none transition-all focus:ring-1 focus:border-blue-600" required>
+            </div>
+            <div class="flex flex-col w-full relative group">
+                <span class="absolute text-xs ml-2 mt-3 bg-[rgb(24,25,26)] group-hover:text-blue-600 px-3 text-[rgba(255,255,255,.4)]">CPF</span>
+                <input type="text" class="w-full mt-5 p-4 bg-transparent text-sm 
+                border border-[rgba(255,255,255,.2)] rounded-md focus:outline-none transition-all focus:ring-1 focus:border-blue-600" 
+                placeholder="000.000.000-00" required>
+            </div>
+            <button class="w-full p-3 text-white text-sm font-bold bg-[rgb(56,88,152)] rounded-md mt-7 uppercase btn-saq">Realizar Saque</button>
+        </form>
+    </section>
+
+    <footer class="bg-[rgb(36,37,38)] w-full h-20 pt-3 flex text-white items-center justify-between px-16 sticky bottom-0">
+        
+        <div class="flex flex-col gap-1 text-sm font-light items-center justify-center h-full menu-item pix-item">
+            <i class="fa-brands fa-pix text-lg"></i>
+            <span>Saque</span>
+        </div>
+        <div class="flex flex-col gap-1 text-sm font-light items-center justify-center h-full menu-item" style="color: rgb(56,88,152);" onclick="selectMenu(this,'home')">
+            <i class="fa-solid fa-house text-lg"></i>
+            <span>Inicio</span>
+        </div>
+        
+        <div class="flex flex-col gap-1 text-sm font-light items-center justify-center h-full menu-item" onclick="selectMenu(this,'bonus')">
+            <i class="fa-sharp fa-solid fa-circle-star text-lg"></i>
+            <span>Bônus</span>
+        </div>
+    </footer>
+    
+   
+   <!-- lista conteudo -->
+   
+   
+    <script>
+        const arrayImagens = [
+            'src/ads/1.png', 
+            'src/ads/2.png', 
+            'src/ads/3.png', 
+            'src/ads/5.png', 
+            'src/ads/6.png', 
+            'src/ads/7.jpg', 
+            'src/ads/8.jpg', 
+            'src/ads/9.jpg', 
+            'src/ads/10.jpg', 
+            'src/ads/11.jpg', 
+            'src/ads/12.jpg',
+            'src/ads/13.jpg', 
+            'src/ads/14.jpg',
+            'src/ads/15.jpg'
+        ];
+        
+
+        
+        const classesLinks = ['anuncio2', 'anuncio3', 'anuncio4', 'anuncio5',
+        'anuncio6', 'anuncio7', 'anuncio8','anuncio9', 'anuncio10', 'anuncio11',
+        'anuncio12','anuncio13', 'anuncio14','anuncio15'];
+        
+        const conteudoAnuncio = document.querySelector('.conteudo-anuncio');
+     
+        function listaConteudo() {
+            for (let i = 0; i < arrayImagens.length; i++) {
+                
+               const itemAtual = classesLinks[i + 1];
+                
+               const anuncioId = `anuncio-${i}`;
+                
+                conteudoAnuncio.innerHTML += `
+                
+                    <div class='logo-anuncio'>
+                    
+                        <div id='${anuncioId}'>
+                        
+                            <img id='${classesLinks[i]}' src='${arrayImagens[i]}' alt='logo-anuncio'>
+                            
+                            <div class='conteudo-botoes' data-anuncio='${i}' >
+                            
+                                <a onclick='verifica("${anuncioId}", ${i + 1})' id='botao-curti' href='#${itemAtual == undefined ? 'mais-anuncios' : itemAtual}' class='w-full p-3 text-white text-base bg-[rgb(56,88,152)] rounded-md generate botao-curti like'>
+                                    
+                                    <svg style="height: 1.5rem; width: 1.5rem;" class="botao-curti-like MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="ThumbUpOutlinedIcon">
+                                        <path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.58 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM9 9l4.34-4.34L12 10h9v2l-3 7H9V9zM1 9h4v12H1z"></path>
+                                    </svg>
+                                </a>
+                                <a onclick='verifica("${anuncioId}", ${i + 1})' id='botao-curti-deslike' href='#${itemAtual == undefined ? 'mais-anuncios' : itemAtual}'  class='w-full p-3 text-white text-base bg-[rgb(56,88,152)] rounded-md generate  botao-curti deslike'>
+                                    <svg style="height: 1.5rem; width: 1.5rem;" class="botao-curti-like MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="ThumbDownOutlinedIcon">
+                                        <path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v-2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm0 12-4.34 4.34L12 14H3v-2l3-7h9v10zm4-12h4v12h-4z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            <hr class='conteudo-linha-horizontal'>
+                        </div>
+                    </div>
+                `;
+                
+                
+                
+            }
+            
+            
+           
+        }
+        
+        
+        listaConteudo();
+        
+      
+        function verifica(indexAnterior, indexAtual) {
+            
+            const anuncio = document.getElementById(indexAnterior);
+        
+            if (anuncio) {
+                anuncio.style.display = 'none';
+            } else {
+                console.error(`Elemento com o ID '${indexAnterior}' não foi encontrado.`);
+            }
+        }
+
+   </script>
+    <script>
+    
+    if (!('scrollBehavior' in document.documentElement.style)) {
+        const links = document.querySelectorAll('a[href^="#"]');
+        links.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    }
+
+    </script>
+
+    
+    <script src="https://code.jquery.com/jquery-3.6.4.js" 
+    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" 
+    crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    
+    
+    
+    <script src="marcas.js"></script>
+    
+    <script>
+        let enters;
+        var stars = "./src/star.webp";
+        var clicked = "./src/clicked.webp";
+            function gerarNumerosFloat(min, max) {
+            const numer = (Math.random() * (max - min) + min).toFixed(2)
+            return numer;
+        }
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top',
+            timer: 3800,
+            timerProgressBar: true,
+            showConfirmButton: false,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        });
+        function setWallet() {
+            let isWallet = localStorage.getItem('wallet');
+            if (!isWallet) return;
+            $('.wallet').html(Number(isWallet).toFixed(2));
+        }
+        function setCodes() {
+            let isCode = localStorage.getItem('codes');
+            if (isCode) {
+                if (Number(isCode) === 35) {
+                    $('blocked').fadeIn();
+                    return;
+                };
+                localStorage.setItem('codes', Number(isCode) + 1);
+            } else {
+                localStorage.setItem('codes', 1);
+            }
+        }
+        
+        function loadBtn(e) {
+            $(e).removeClass('bg-[rgb(56,88,152)]');
+            $(e).addClass('bg-[rgb(36,37,38)]');
+            // $(e).html('<i class="fas fa-spinner fa-pulse opacity-50"></i>');
+            
+            
+            // $('#botao-curti').html('<i class="fas fa-spinner fa-pulse opacity-50"></i>');
+            const botaoClicado = $(e);
+
+    
+            const elementoLike = botaoClicado.find('.botao-curti');
+            const elementoDeslike = botaoClicado.find('.botao-curti-deslike');
+        
+            // Defina o ícone de spinner nos elementos de like e deslike
+            elementoLike.html('<i class="fas fa-spinner fa-pulse opacity-50"></i>');
+            elementoDeslike.html('<i class="fas fa-spinner fa-pulse opacity-50"></i>');
+            
+            
+        };
+        $('.generate').on('click', function() {
+            loadBtn(this);
+            setTimeout(() => {
+                if ($(this).html().includes('<i class="fas fa-spinner fa-pulse opacity-50"></i>')) {
+               
+                  $(a).find('i.fas.fa-spinner.fa-pulse.opacity-50').remove();
+                
+                } 
+                $('#botao-curti').html("<svg style='height: 1rem; width: 1rem;' class='botao-curti-like MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv' focusable='false' aria-hidden='true' viewBox='0 0 24 24' data-testid='ThumbUpOutlinedIcon'><path d='M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.58 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM9 9l4.34-4.34L12 10h9v2l-3 7H9V9zM1 9h4v12H1z'></path></svg>");
+            
+                $('#botao-curti-deslike').html("<svg style='height: 1rem; width: 1rem;' class='botao-curti-like MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv' focusable='false' aria-hidden='true' viewBox='0 0 24 24' data-testid='ThumbDownOutlinedIcon'> <path d='M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm0 12-4.34 4.34L12 14H3v-2l3-7h9v10zm4-12h4v12h-4'></path></svg>");
+                
+                $(this).removeClass('bg-[rgb(36,37,38)]');
+                $(this).addClass('bg-[rgb(56,88,152)]');
+                
+                
+                
+
+                
+                // let generateMarca = parseInt(gerarNumerosFloat(0, config.length - 1));
+                // $('#empresa-img').html(`
+                //     <img src="src/marcas/${config[generateMarca].img}" alt="">
+                // `);
+                // $('#empresa-name').html(config[generateMarca].name);
+                // $('section').hide();
+                // $('.code').fadeIn();
+                
+                $('.money').html(gerarNumerosFloat(5, 7));
+                
+                let isWallet = localStorage.getItem('wallet');
+                if (isWallet) {
+                    localStorage.setItem('wallet', Number(isWallet) + Number($('.money').html()));
+                } else {
+                    localStorage.setItem('wallet', $('.money').html());
+                }
+                
+                 Toast.fire({
+                    icon: 'success',
+                    title: `R$ ${$('.money').html()} adicionado à carteira`
+                });
+                
+                $('.code').hide();
+                $('.home').fadeIn();
+                $(this).removeClass('bg-[rgb(36,37,38)]');
+                $(this).addClass('bg-[rgb(0,170,79)]');
+                // $(this).html('Aceitar');
+                setWallet();
+                setCodes();
+
+            }, 1800);
+            
+
+        });
+        $('.btn-with').on('click', function() {
+            $('section').hide();
+            $('.withdraw').fadeIn();
+
+            let isWallet = localStorage.getItem('wallet');
+            
+            $('#saq-wallet').val(`R$ ${isWallet ? Number(isWallet).toFixed(2) : '0.00'}`)
+        });
+        $("#saq").on( "submit", function(e) {
+            e.preventDefault();
+            $('withblock').fadeIn();
+        });
+        $('.desblock-with').on('click', function() {
+            $('withblock').fadeOut();
+        });
+        $('.desblock').on('click', function() {
+            localStorage.setItem('codes', 1);
+            $('blocked').fadeOut();
+        });
+        
+        // $('.accept').on('click', function() {
+        //     loadBtn(this);
+        //     let isWallet = localStorage.getItem('wallet');
+        //     if (isWallet) {
+        //         localStorage.setItem('wallet', Number(isWallet) + Number($('.money').html()));
+        //     } else {
+        //         localStorage.setItem('wallet', $('.money').html());
+        //     }
+
+        //     setTimeout(() => {
+        //         Toast.fire({
+        //             icon: 'success',
+        //             title: `R$ ${$('.money').html()} adicionado à carteira`
+        //         });
+        //         $('.code').hide();
+        //         $('.home').fadeIn();
+        //         $(this).removeClass('bg-[rgb(36,37,38)]');
+        //         $(this).addClass('bg-[rgb(0,170,79)]');
+        //         $(this).html('Aceitar');
+        //         setWallet();
+        //         setCodes();
+        //     }, 800);
+        // });
+        // $('.recuse').on('click', function() {
+        //     loadBtn(this);
+        //     setTimeout(() => {
+        //         $('.code').hide();
+        //         $('.home').fadeIn();
+        //         $(this).removeClass('bg-[rgb(36,37,38)]');
+        //         $(this).addClass('bg-[rgb(245,106,80)]');
+        //         $(this).html('Recusar');
+        //     }, 800);
+        // });
+
+        function obterIndiceAleatorio(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        function selectMenu(e,menu) {
+            $('section').hide();
+            $(`.${menu}`).fadeIn();
+            $('.menu-item').css('color', '#fff');
+            $(e).css('color', 'rgb(56,88,152)');
+        }
+
+        function resetMines() {
+            $('.mines-ia').html(`
+                <div class="overlay absolute w-full h-full left-0 top-0 bg-[rgba(0,0,0,.2)] backdrop-blur-md 
+                    rounded-md flex items-center flex-col justify-center text-center">
+                    <i class="fa-solid fa-robot mb-2 text-4xl"></i>
+                    <span class="text-xs tracking-wider">Aguardando indentificar<br> sinal clicando no botao abaixo</span>
+                </div>
+                <div class="table-mines" id="minha-lista"></div>
+            `);
+            $('.val-text').html('...');
+            $('.mines-text').html('...');
+            $('.attempts-text').html('...');
+            $('.last-time').html('Aguardando');
+            $('#enters-people').html('0');
+            clearInterval(enters);
+            for (var i = 0; i < 25; i++) {
+                $('.table-mines').append(`<img src="./src/clicked.webp" />`)
+            }
+        }
+
+        function criarListaImagens() {
+            var indicesDiferentes = [];
+            while (indicesDiferentes.length < 3) {
+                var indice = obterIndiceAleatorio(25);
+                if (indicesDiferentes.indexOf(indice) === -1) {
+                indicesDiferentes.push(indice);
+                }
+            }
+            var lista = document.getElementById("minha-lista");
+            for (var i = 0; i < 25; i++) {
+                var imagem = new Image();
+                var indice;
+                if (indicesDiferentes.indexOf(i) !== -1) {
+                    indice = obterIndiceAleatorio(stars);
+                    imagem.src = stars;
+                } else {
+                    imagem.src = clicked;
+                }
+                lista.appendChild(imagem);
+            }
+        }
+        
+        
+        // Abri modal saldo
+        $('.pix-item').on('click', function() {
+            $('#desbloquearSaldo').fadeIn();
+        });
+
+       // Fecha modal saldo
+        $('.entendi-btn').on('click', function() {
+            $('#desbloquearSaldo').fadeOut();
+        });
+        
+          // Abri modal anuncio
+        $('.desbloquear-item').on('click', function() {
+            $('#abrirModalDesbloquearAnuncios').fadeIn();
+        });
+
+       // Fecha modal anuncio
+        $('.desbloquear-btn').on('click', function() {
+            $('#abrirModalDesbloquearAnuncios').fadeOut();
+        });
+        
+        
+        $(document).ready(function() {
+            let timer = 60;
+            resetMines();
+            setWallet();
+            let isCode = localStorage.getItem('codes');
+            if (Number(isCode) === 35) {
+                $('blocked').fadeIn();
+            }
+
+            $('.btn-ia').on('click', function() {
+                var dataAtual = new Date();
+                dataAtual.setMinutes(dataAtual.getMinutes() + 4);
+
+                
+                enters = setInterval(() => {
+                    let inter = $('#enters-people').text();
+                    $('#enters-people').html(parseInt(inter)+Math.floor(Math.random() * 10))
+                }, 8000);
+
+                var horas = dataAtual.getHours();
+                var minutos = dataAtual.getMinutes();
+                var segundos = dataAtual.getSeconds();
+                var novaHora = horas.toString().padStart(2, '0') + ':' + minutos.toString().padStart(2, '0');
+
+                $('.mines-ia .overlay').html(`
+                    <i class="fa-solid fa-robot mb-2 text-4xl"></i>
+                    <span class="text-[10px] text-ia uppercase font-light tracking-wider mt-1">
+                        Identificando zona de <br> 
+                        calor das bombas
+                    </span>
+                    <div class="w-[50%] h-1 mt-3 bg-[rgba(255,255,255,.2)] overflow-hidden rounded-full">
+                        <div class="fill h-full bg-white w-[100%]"></div>
+                    </div>
+                `);
+                setTimeout(() => {$('.text-ia').html('Injetando script para <br>localização de bombas')}, "2200");
+                $(".fill").animate({width: '0%'}, 5000);
+                $('.btn-ia').html(`
+                    <div class="flex items-center justify-center text-2xl">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </div>
+                `);
+
+                setTimeout(() => {
+                    $('.mines-ia').html(`<div class="table-mines" id="minha-lista"></div>`);
+                    criarListaImagens();
+                    let myInterval = setInterval(myTimer, 1000);
+                    function myTimer() {
+                        $('.btn-ia').html(`
+                            <div class="flex items-center justify-center text-2xl">
+                                <i class="fas fa-spinner fa-spin mr-5"></i>
+                                <span>00:${timer--}</span>
+                            </div>
+                        `);
+                        if(timer <= 0) {
+                            timer = 60;
+                            resetMines();
+                            $('.btn-ia').html(`<i class="fa-solid fa-bomb mr-1"></i> Identificar Sinais`);
+                            clearInterval(myInterval);
+                        }
+                    }
+                    $('.mines-text').html('3');
+                    $('.attempts-text').html('3');
+                    $('.last-time').html('Green ✅');
+                    $('.val-text').html(novaHora);
+                }, "4200");
+            });
+        });
+    </script>
+</body>
+</html>
